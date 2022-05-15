@@ -23,7 +23,8 @@ def bf(code):
         elif code[i] == "+":
             arr[pointerPos] += 1
         elif code[i] == "-":
-            arr[pointerPos] -= 1
+            if arr[pointerPos] > 0:
+                arr[pointerPos] -= 1
         elif code[i] == ".":
             print(pointerPos, arr[pointerPos], chr(arr[pointerPos]))
         elif code[i] == ",":
@@ -38,11 +39,11 @@ def bf(code):
                 mv = int(code[i + 1])
                 pointerPos += mv
                 if pointerPos >= len(arr):
-                    for x in range(mv):
+                    for n in range(mv):
                         arr.append(0)
-                print(mv, pointerPos)
+                print(mv, arr)
             except ValueError:
-                print(f"error (pos {pointerPos}): missing number after *")
+                print("f")
         elif code[i] == "[":
             if arr[pointerPos] == 0:
                 ob = 1
@@ -65,4 +66,5 @@ def bf(code):
         i += 1
 
 #bf("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------.<+++++++++++.")
-bf("+++[>+*1<<<-]")
+#bf("+++[>+*9<<<-]")
+bf(">,[>,]<[<]>[.>]")
