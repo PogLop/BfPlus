@@ -1,5 +1,6 @@
+
 """
-    bfPlus Compiler - by poklop
+    bfPlus Compiler - by Prokop Schovanec
 
     Just basic bf, but with some
     more features.
@@ -16,17 +17,21 @@ def bf(code):
         if code[i] == "<":
             if pointerPos > 0:
                 pointerPos -= 1
+
         elif code[i] == ">":
             pointerPos += 1
             if pointerPos >= len(arr):
                 arr.append(0)
+
         elif code[i] == "+":
             arr[pointerPos] += 1
+
         elif code[i] == "-":
-            if arr[pointerPos] > 0:
-                arr[pointerPos] -= 1
+            arr[pointerPos] -= 1
+
         elif code[i] == ".":
             print(pointerPos, arr[pointerPos], chr(arr[pointerPos]))
+
         elif code[i] == ",":
             inp = input("> ")
             try:
@@ -34,16 +39,30 @@ def bf(code):
             except ValueError:
                 np = ord(inp)
             arr[pointerPos] = np
+
         elif code[i] == "*":
-            try:
-                mv = int(code[i + 1])
-                pointerPos += mv
-                if pointerPos >= len(arr):
-                    for n in range(mv):
-                        arr.append(0)
-                print(mv, arr)
-            except ValueError:
-                print("f")
+            plMov = ""
+            for n in range(3):
+                try:
+                    num = int(code[i + n])
+                    plMov += str(num)
+                except ValueError:
+                    pass
+            pointerPos += int(plMov)
+            if pointerPos >= len(arr):
+                for n in range(int(plMov)):
+                    arr.append(0)
+
+        elif code[i] == "@":
+            plNum = ""
+            for n in range(3):
+                try:
+                    num = int(code[i + n])
+                    plNum += str(num)
+                except ValueError:
+                    pass
+            arr[pointerPos] = int(plNum)
+
         elif code[i] == "[":
             if arr[pointerPos] == 0:
                 ob = 1
@@ -53,6 +72,7 @@ def bf(code):
                         ob += 1
                     elif code[i] == "]":
                         ob -= 1
+
         elif code[i] == "]":
             ob = 1
             while ob > 0:
@@ -66,5 +86,7 @@ def bf(code):
         i += 1
 
 #bf("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------.<+++++++++++.")
-#bf("+++[>+*9<<<-]")
-bf(">,[>,]<[<]>[.>]")
+#bf(">++++++++++[<+++++++>-]<.")
+#bf(">,[>,]<[<]>[.>]")
+bf("@72.@69.@76.@76.@79.")
+#bf("*4.")
