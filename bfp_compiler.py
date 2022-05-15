@@ -8,9 +8,12 @@
 
 """
 
+import sys
+
 def bf(code):
     arr = [0]
     pointerPos = 0
+    maxInt = 4
     i = 0
     ob = 0
     while i < len(code):
@@ -42,7 +45,7 @@ def bf(code):
 
         elif code[i] == "*":
             plMov = ""
-            for n in range(3):
+            for n in range(maxInt):
                 try:
                     num = int(code[i + n])
                     plMov += str(num)
@@ -55,7 +58,7 @@ def bf(code):
 
         elif code[i] == "@":
             plNum = ""
-            for n in range(3):
+            for n in range(maxInt):
                 try:
                     num = int(code[i + n])
                     plNum += str(num)
@@ -88,5 +91,12 @@ def bf(code):
 #bf("++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>------------.<+++++++++++.")
 #bf(">++++++++++[<+++++++>-]<.")
 #bf(">,[>,]<[<]>[.>]")
-bf("@72.@69.@76.@76.@79.")
-#bf("*4.")
+#bf("@72.@69.@76.@76.@79.")
+#bf("*777.")
+
+if __name__ == "__main__":
+    try:
+        bfCode = str(sys.argv[1])
+        bf(bfCode)
+    except IndexError:
+        print("no args")

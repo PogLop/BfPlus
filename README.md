@@ -16,4 +16,10 @@ List of added keywords:
 * = multi-move -> moves pointer according to given number (negative numbers doesnt work yet)
 @ = multi-add -> sets current memory block to given number
 ```
-more docs comming soon :)
+
+## Running code
+
+There are three options to run your bf+ script:
+- Use the function bf(*code*) inside main script
+- Inside terminal run `python bfp_compiler.py "<your_code>"`
+- Import bf+ into your script (in future bf+ will be available as pip package)
