@@ -13,7 +13,7 @@ BfPlus works like normal brainfuck, except there are some more functions. So tha
 List of added keywords: 
 
 ```
-* = multi-move -> moves pointer according to given number (negative numbers doesnt work yet)
+* = multi-move -> moves pointer according to given number
 @ = multi-add -> sets current memory block to given number
 ```
 
