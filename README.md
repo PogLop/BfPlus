@@ -14,7 +14,7 @@ List of added keywords:
 
 ```
 * = multi-move -> moves pointer according to given number
-@ = multi-add -> sets current memory block to given number
+@ = setter -> sets current memory block to given number
 ```
 
 ## Running code
