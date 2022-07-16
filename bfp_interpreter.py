@@ -1,6 +1,6 @@
 
 """
-    bfPlus Compiler - by Prokop Schovanec
+    bf+ Compiler - by Prokop Schovanec
 
     Just basic bf, but with some
     more features.
